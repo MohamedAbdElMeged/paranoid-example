@@ -7,8 +7,8 @@ ruby "3.1.2"
 gem "rails", "~> 7.0.3"
 
 # Use mysql as the database for Active Record
-gem "mysql2", "~> 0.5"
-
+# gem "mysql2", "~> 0.5"
+gem "sqlite3"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 #gem 'userstamp'

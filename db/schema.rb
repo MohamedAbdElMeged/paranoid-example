@@ -11,16 +11,17 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_05_17_142917) do
-  create_table "comments", charset: "utf8mb4", force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
     t.string "title"
-    t.bigint "post_id", null: false
+    t.integer "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_comments_on_deleted_at"
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
-  create_table "posts", charset: "utf8mb4", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "body"
     t.datetime "created_at", null: false
@@ -31,7 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_17_142917) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
